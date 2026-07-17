@@ -279,16 +279,16 @@ nav.tabs button:hover:not(.on){color:var(--text)}
     <div><div class="t1">The Alchemist Almanac</div><div class="t2">Study&nbsp;Deck</div></div>
   </div>
   <nav class="tabs" id="tabs">
-    <button data-view="study" class="on">Study</button>
-    <button data-view="browse">Browse</button>
+    <button data-view="browse" class="on">Browse</button>
     <button data-view="timeline">Timeline</button>
+    <button data-view="study">Study</button>
     <button data-view="progress">Progress</button>
   </nav>
 </div></header>
 
 <main class="wrap">
   <!-- STUDY -->
-  <section id="v-study" class="view on">
+  <section id="v-study" class="view">
     <div class="eyebrow">Active recall · spaced repetition</div>
     <h1 class="h-lg">Declassify the material.</h1>
     <p class="sub">Answer from memory, then reveal. What you know resurfaces less often; what you miss returns soon.</p>
@@ -302,7 +302,7 @@ nav.tabs button:hover:not(.on){color:var(--text)}
   </section>
 
   <!-- BROWSE -->
-  <section id="v-browse" class="view">
+  <section id="v-browse" class="view on">
     <div class="eyebrow">The index</div>
     <h1 class="h-lg">Browse the dossier.</h1>
     <div class="controls">
@@ -347,12 +347,12 @@ nav.tabs button:hover:not(.on){color:var(--text)}
 </main>
 
 <nav class="tabbar" id="tabbar">
-  <button data-view="study" class="on">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H4z"/><path d="M4 17l8 3 8-3"/></svg>Study</button>
-  <button data-view="browse">
+  <button data-view="browse" class="on">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>Browse</button>
   <button data-view="timeline">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="3" x2="12" y2="21"/><circle cx="12" cy="7" r="2"/><circle cx="12" cy="16" r="2"/></svg>Timeline</button>
+  <button data-view="study">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H4z"/><path d="M4 17l8 3 8-3"/></svg>Study</button>
   <button data-view="progress">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5"/><path d="M4 15l5-5 4 3 7-7"/></svg>Progress</button>
 </nav>
@@ -680,7 +680,7 @@ function stat(n,l,cls){ return `<div class="stat"><div class="n ${cls}">${n}</di
 document.getElementById('resetBtn').onclick=()=>{ if(confirm("Reset all study progress on this device? This cannot be undone.")){ P={cards:{},streak:{count:0,last:null},reviews:0}; save(); RQ=[];RCUR=null; renderProgress(); toast("Progress reset"); } };
 
 /* ---------- boot ---------- */
-renderStudy();
+show('browse');
 })();
 </script>
 </body>
